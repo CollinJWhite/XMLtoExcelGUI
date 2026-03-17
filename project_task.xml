@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+    <task>
+        <task_id>T001</task_id>
+        <project_name>Bridge Expansion</project_name>
+        <assigned_to>Sarah Johnson</assigned_to>
+        <status>Completed</status>
+        <hours_logged>35</hours_logged>
+    </task>
+
+    <task>
+        <task_id>T002</task_id>
+        <project_name>Substation Design</project_name>
+        <assigned_to>Michael Chen</assigned_to>
+        <status>In Progress</status>
+        <hours_logged>18</hours_logged>
+    </task>
+
+    <task>
+        <task_id>T003</task_id>
+        <project_name>Pipeline Inspection</project_name>
+        <assigned_to>Emily Rodriguez</assigned_to>
+        <status>Not Started</status>
+        <hours_logged>0</hours_logged>
+    </task>
+</projects>

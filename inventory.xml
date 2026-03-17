@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventory>
+    <item>
+        <product_id>P100</product_id>
+        <name>Steel Beam</name>
+        <category>Structural</category>
+        <quantity>120</quantity>
+        <supplier>
+            <name>SteelCorp</name>
+            <location>Pittsburgh</location>
+        </supplier>
+    </item>
+
+    <item>
+        <product_id>P101</product_id>
+        <name>Copper Wire</name>
+        <category>Electrical</category>
+        <quantity>500</quantity>
+        <supplier>
+            <name>ElectroSupply</name>
+            <location>Chicago</location>
+        </supplier>
+    </item>
+
+    <item>
+        <product_id>P102</product_id>
+        <name>Concrete Mix</name>
+        <category>Materials</category>
+        <quantity>75</quantity>
+        <supplier>
+            <name>BuildRight</name>
+            <location>Columbus</location>
+        </supplier>
+    </item>
+</inventory>
