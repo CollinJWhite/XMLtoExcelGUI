@@ -8,6 +8,8 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 logging.basicConfig(filename='myProgramLog.txt', filemode='w', level=logging.DEBUG, format=' %(asctime)s - %(levelname)s- %(message)s')
 
 window = tk.Tk()
+window.title("XML to Excel Converter")
+window.minsize(300, 120)
 window.columnconfigure(0, weight=1, minsize=75)
 window.rowconfigure(0, weight=1, minsize=50)
 
@@ -115,11 +117,10 @@ def process_child(root, path, childList, headerList):
 
 
 #set up outer frame
-frm = tk.Frame(window)
-frm.columnconfigure(0, minsize=100)
+frm = tk.Frame(window, bg='lightgray')
 
 #set up and insert widgets as they appear in the GUI
-lbl_prompt_file = tk.Label(frm, text="Enter the name of the XML file to be summarized:")
+lbl_prompt_file = tk.Label(frm, text="Enter the name of the XML file to be summarized:", relief='raised', highlightbackground='black', highlightthickness=1)
 
 ent_file = tk.Entry(frm)
 
