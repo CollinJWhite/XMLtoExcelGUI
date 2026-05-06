@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization>
+    <employee>
+        <personal_info>
+            <name>John Smith</name>
+            <age>35</age>
+            <email>john@company.com</email>
+        </personal_info>
+        <job_info>
+            <title>Senior Engineer</title>
+            <department>Engineering</department>
+            <salary>95000</salary>
+        </job_info>
+    </employee>
+    <contractor>
+        <personal_info>
+            <name>Jane Doe</name>
+            <age>28</age>
+            <email>jane@contractor.com</email>
+        </personal_info>
+        <job_info>
+            <title>Consultant</title>
+            <department>Consulting</department>
+            <rate>150</rate>
+        </job_info>
+    </contractor>
+    <department>
+        <info>
+            <name>Engineering</name>
+            <head_count>25</head_count>
+            <budget>500000</budget>
+        </info>
+        <location>
+            <building>A</building>
+            <floor>3</floor>
+        </location>
+    </department>
+</organization>

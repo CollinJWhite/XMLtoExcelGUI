@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <name>John Doe</name>
+        <age>30</age>
+        <department>Engineering</department>
+        <address>
+            <street>123 Main St</street>
+            <city>Anytown</city>
+            <state>CA</state>
+        </address>
+    </employee>
+    <employee>
+        <name>Jane Smith</name>
+        <age>25</age>
+        <department>Marketing</department>
+        <address>
+            <street>456 Oak Ave</street>
+            <city>Somewhere</city>
+            <state>NY</state>
+        </address>
+    </employee>
+</employees>

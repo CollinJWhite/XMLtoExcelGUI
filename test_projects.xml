@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+    <project>
+        <title>Website Redesign</title>
+        <status>In Progress</status>
+        <team>
+            <lead>
+                <name>Mike Davis</name>
+                <role>Project Manager</role>
+                <skills>
+                    <skill>Management</skill>
+                    <skill>Planning</skill>
+                </skills>
+            </lead>
+            <member>
+                <name>Sarah Lee</name>
+                <role>Designer</role>
+                <skills>
+                    <skill>UI/UX</skill>
+                    <skill>Photoshop</skill>
+                </skills>
+            </member>
+        </team>
+        <budget>
+            <allocated>50000</allocated>
+            <spent>25000</spent>
+        </budget>
+    </project>
+    <project>
+        <title>Mobile App</title>
+        <status>Planning</status>
+        <team>
+            <lead>
+                <name>Tom Wilson</name>
+                <role>Tech Lead</role>
+                <skills>
+                    <skill>React Native</skill>
+                    <skill>Node.js</skill>
+                </skills>
+            </lead>
+            <member>
+                <name>Lisa Chen</name>
+                <role>Developer</role>
+                <skills>
+                    <skill>JavaScript</skill>
+                    <skill>Python</skill>
+                </skills>
+            </member>
+        </team>
+        <budget>
+            <allocated>75000</allocated>
+            <spent>10000</spent>
+        </budget>
+    </project>
+</projects>

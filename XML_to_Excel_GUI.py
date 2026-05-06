@@ -27,6 +27,14 @@ def convert_to_excel():
         headerList = []#list of all headers; Columns of CSV file
         get_headers(root, headerList) 
 
+        #get shortened header names
+        logging.info('Getting shortened header names...')
+        headerMap = get_unique_headers(headerList)
+        shortHeaderList = [''] * len(headerList)
+        for fullPath, shortened in headerMap.items():
+            logging.debug(f'Adding header {shortened} to headerList')
+            shortHeaderList[headerList.index(fullPath)] = shortened
+
         logging.info('---------------Headers created, populating children-------------')
         i = 1
         for child in root:
@@ -36,7 +44,7 @@ def convert_to_excel():
             i = i + 1
             dfList.append(childList)
 
-        df = df = pd.DataFrame(dfList, columns=headerList)
+        df = pd.DataFrame(dfList, columns=shortHeaderList)
         logging.debug(f'Dataframe created from XML file. Dateframe created: {df}')
 
         wb = Workbook()
@@ -78,7 +86,7 @@ def get_headers(treeRoot, headerList):
 
 #Processes a singular child to get headers; Allows for recursion
 def build_header_children(root, path, headerList):
-    currentPath = f'{path}_{root.tag}' if path else root.tag
+    currentPath = f'{path}/{root.tag}' if path else root.tag
     if(len(root) == 0): #if leaf node, process header
         if(currentPath not in headerList):
             logging.debug(f'Adding header {root.tag} to headerList')
@@ -94,7 +102,7 @@ def build_header_children(root, path, headerList):
         
 #Processes a child element, recursively going though it's children as well
 def process_child(root, path, childList, headerList):
-    currentPath = f'{path}_{root.tag}' if path else root.tag
+    currentPath = f'{path}/{root.tag}' if path else root.tag
     if(len(root) == 0): #if leaf node, store info
         logging.debug(f'Logging leaf node {root.text} at {currentPath}')
         text = root.text.strip() if root.text is not None else ''
@@ -114,7 +122,37 @@ def process_child(root, path, childList, headerList):
             logging.debug(f'Navigating subtree {child.tag}; Text of parent left behind is {root.text} and tag is {root.tag}')
             process_child(child, currentPath, childList, headerList)
 
-
+def get_unique_headers(fullPaths):
+    #Convert full paths to shortest unique suffixes.
+    #For each path, find the shortest suffix that uniquely identifies it.
+    headers = {}  # maps original full path to final header name
+    
+    for fullPath in fullPaths:
+        parts = fullPath.split('/')
+        
+        # Try from shortest to longest suffix
+        for suffix_length in range(1, len(parts) + 1):
+            suffix = '/'.join(parts[-suffix_length:]) #joins last <suffix_length> elements of parts with slashes to create suffix
+            
+            # Check if another path would also generate this same suffix at this length
+            conflict = False
+            for otherPath in fullPaths:
+                if otherPath == fullPath:
+                    continue
+                otherParts = otherPath.split('/')
+                if suffix_length <= len(otherParts):
+                    otherSuffix = '/'.join(otherParts[-suffix_length:])
+                    if otherSuffix == suffix:
+                        conflict = True
+                        break
+            if not conflict:
+                headers[fullPath] = suffix
+                break
+        
+        # If no unique suffix found, use full path as fallback
+        if fullPath not in headers:
+            headers[fullPath] = fullPath
+    return headers
 
 #set up outer frame
 frm = tk.Frame(window, bg='lightgray')
